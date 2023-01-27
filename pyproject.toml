@@ -25,6 +25,7 @@ cookiecutter = "^2.1.1"
 rich = "^12.5.1"
 dagster-meltano = ">=1.0.0"
 dagster-postgres = "^0.17.10"
+SQLAlchemy = ">=1.4.46,<2.0.0"
 # Dependencies from Meltano EDK, remove when dependency fixed
 structlog = "^21.2.0"
 PyYAML = "^6.0.0"
