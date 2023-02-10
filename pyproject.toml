@@ -23,7 +23,7 @@ dagster = ">=1.0"
 dagster-dbt = ">=0.16"
 cookiecutter = "^2.1.1"
 rich = "^12.5.1"
-dagster-meltano = ">=1.0.0"
+dagster-meltano = { git = "https://github.com/hiddestokvis/dagster-meltano.git" }
 dagster-postgres = "^0.17.10"
 SQLAlchemy = ">=1.4.46,<2.0.0"
 # Dependencies from Meltano EDK, remove when dependency fixed
