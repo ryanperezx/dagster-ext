@@ -450,53 +450,49 @@ python-dateutil = "*"
 
 [[package]]
 name = "dagit"
-version = "1.1.21"
+version = "1.4.10"
 description = "Web UI for dagster."
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "dagit-1.1.21-py3-none-any.whl", hash = "sha256:cf8d98ca478dbcfe2981058603baf9033188ee6469eedea4d962ba2f81b92a70"},
-    {file = "dagit-1.1.21.tar.gz", hash = "sha256:90b7315ab9001bfd04e085c3128302b64aa8b64e341e546def4948011b546395"},
+    {file = "dagit-1.4.10-py3-none-any.whl", hash = "sha256:8d12821aa3f76f892cc61ce64b2d8ddff571d52af9d05b497f53de4a95bc75e4"},
+    {file = "dagit-1.4.10.tar.gz", hash = "sha256:dd36946682b2737f57635803baa59553fb223c01ed4ccd1db227ab85671895d6"},
 ]
 
 [package.dependencies]
-click = ">=7.0,<9.0"
-dagster = "1.1.21"
-dagster-graphql = "1.1.21"
-starlette = "*"
-uvicorn = {version = "*", extras = ["standard"]}
+dagster-webserver = "1.4.10"
 
 [package.extras]
-notebook = ["nbconvert"]
-test = ["starlette[full]"]
+notebook = ["dagster-webserver[notebook] (==1.4.10)"]
+test = ["dagster-webserver[test] (==1.4.10)"]
 
 [[package]]
 name = "dagster"
-version = "1.1.21"
-description = "The data orchestration platform built for productivity."
+version = "1.4.10"
+description = "Dagster is an orchestration platform for the development, production, and observation of data assets."
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "dagster-1.1.21-py3-none-any.whl", hash = "sha256:75249daa0076c4cc0000f6a5c9570469cce815f4c0b8c5e9c1e48e0cabd37bb4"},
-    {file = "dagster-1.1.21.tar.gz", hash = "sha256:49ba8e30d44e9dcc933158048f6f6f1d18fdf9262e2ee3397b724566006593c2"},
+    {file = "dagster-1.4.10-py3-none-any.whl", hash = "sha256:342a0e15fd2b23357957a1cca2f56c66f18f9a2211bd843d8c47ac0415a54a83"},
+    {file = "dagster-1.4.10.tar.gz", hash = "sha256:026705e7d235ca4a8774d3e5f2da09b112bb6827e09a002efd299d9009cc940f"},
 ]
 
 [package.dependencies]
-alembic = ">=1.2.1,<1.6.3 || >1.6.3,<1.7.0 || >1.7.0"
+alembic = ">=1.2.1,<1.6.3 || >1.6.3,<1.7.0 || >1.7.0,<1.11.0 || >1.11.0"
 click = ">=5.0"
 coloredlogs = ">=6.1,<=14.0"
 croniter = ">=0.3.34"
 docstring-parser = "*"
-grpcio = ">=1.32.0,<1.48.1"
-grpcio-health-checking = ">=1.32.0,<1.44.0"
+grpcio = ">=1.44.0"
+grpcio-health-checking = ">=1.44.0"
 Jinja2 = "*"
 packaging = ">=20.9"
 pendulum = "*"
-protobuf = ">=3.13.0,<4"
+protobuf = ">=3.20.0"
 psutil = {version = ">=1.0", markers = "platform_system == \"Windows\""}
-pydantic = "*"
+pydantic = "<1.10.7 || >1.10.7,<2.0.0"
 python-dateutil = "*"
 python-dotenv = "*"
 pytz = "*"
@@ -504,7 +500,7 @@ pywin32 = {version = "!=226", markers = "platform_system == \"Windows\""}
 PyYAML = ">=5.1"
 requests = "*"
 setuptools = "*"
-sqlalchemy = ">=1.0,<2.0.0"
+sqlalchemy = ">=1.0"
 tabulate = "*"
 tomli = "*"
 toposort = ">=1.0"
@@ -514,52 +510,57 @@ universal-pathlib = "*"
 watchdog = ">=0.8.3"
 
 [package.extras]
-black = ["black[jupyter] (==22.12.0)"]
+black = ["black[jupyter] (==23.7.0)"]
 docker = ["docker"]
 mypy = ["mypy (==0.991)"]
-pyright = ["pandas-stubs", "pyright (==1.1.293)", "types-PyYAML", "types-backports", "types-certifi", "types-chardet", "types-croniter", "types-cryptography", "types-mock", "types-paramiko", "types-pkg-resources", "types-pyOpenSSL", "types-python-dateutil", "types-pytz", "types-requests", "types-simplejson", "types-six", "types-sqlalchemy", "types-tabulate", "types-toml", "types-tzlocal"]
-ruff = ["ruff (==0.0.241)"]
-test = ["buildkite-test-collector", "docker", "grpcio-tools (>=1.32.0,<1.44.0)", "mock (==3.0.5)", "objgraph", "pytest (==7.0.1)", "pytest-cov (==2.10.1)", "pytest-dependency (==0.5.1)", "pytest-mock (==3.3.1)", "pytest-rerunfailures (==10.0)", "pytest-runner (==5.2)", "pytest-xdist (==2.1.0)", "responses", "snapshottest (==0.6.0)", "tox (==3.25.0)", "yamllint"]
+pyright = ["pandas-stubs", "pyright (==1.1.316)", "types-PyYAML", "types-backports", "types-certifi", "types-chardet", "types-croniter", "types-cryptography", "types-mock", "types-paramiko", "types-pkg-resources", "types-pyOpenSSL", "types-python-dateutil", "types-pytz", "types-requests", "types-simplejson", "types-six", "types-sqlalchemy (==1.4.53.34)", "types-tabulate", "types-toml", "types-tzlocal"]
+ruff = ["ruff (==0.0.277)"]
+test = ["buildkite-test-collector", "docker", "grpcio-tools (>=1.44.0)", "mock (==3.0.5)", "morefs[asynclocal]", "objgraph", "pytest (==7.0.1)", "pytest-cov (==2.10.1)", "pytest-dependency (==0.5.1)", "pytest-mock (==3.3.1)", "pytest-rerunfailures (==10.0)", "pytest-runner (==5.2)", "pytest-xdist (==2.1.0)", "responses (<=0.23.1)", "syrupy (<4)", "tox (==3.25.0)", "yamllint"]
 
 [[package]]
 name = "dagster-dbt"
-version = "0.17.21"
+version = "0.20.10"
 description = "A Dagster integration for dbt"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "dagster-dbt-0.17.21.tar.gz", hash = "sha256:ff6b25a9cc7b087ff6102b445302f127d8572b0c6f54c697fbb75e19d7e55485"},
-    {file = "dagster_dbt-0.17.21-py3-none-any.whl", hash = "sha256:8a44cb9f9ce4554cd893f1b9415da0f5b7163c43020f425a054f0c2f82977ef9"},
+    {file = "dagster-dbt-0.20.10.tar.gz", hash = "sha256:26033c928b47203e0d375a9954bf240456494204fc32dad08012798de2f79393"},
+    {file = "dagster_dbt-0.20.10-py3-none-any.whl", hash = "sha256:04891eb4313d4ee810723c3f793063a97008a311c9938571c74c817b06cafb81"},
 ]
 
 [package.dependencies]
-dagster = "1.1.21"
-dbt-core = "*"
+dagster = "1.4.10"
+dbt-core = "<1.7"
+Jinja2 = "*"
+networkx = "*"
+orjson = "*"
 requests = "*"
-typer = {version = "*", extras = ["all"]}
+rich = "*"
+typer = ">=0.9.0"
 
 [package.extras]
-test = ["Jinja2", "dbt-postgres", "dbt-rpc (<0.3.0)"]
+test = ["dagster-duckdb", "dagster-duckdb-pandas", "dbt-duckdb"]
 
 [[package]]
 name = "dagster-graphql"
-version = "1.1.21"
+version = "1.4.10"
 description = "The GraphQL frontend to python dagster."
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "dagster-graphql-1.1.21.tar.gz", hash = "sha256:d9204b565b26eedc1f4678614ea72712cf5465e094660b6d181e9cc7d705fc9d"},
-    {file = "dagster_graphql-1.1.21-py3-none-any.whl", hash = "sha256:84e47d31b7f8d054c46bf5bcc34a6fc8ee30f3da31e1ba74636fcb6ceca5101a"},
+    {file = "dagster-graphql-1.4.10.tar.gz", hash = "sha256:ea216e2e5bf1d1e5934b3bd5fde4b731dab9963fbd3dc0f89a0063347efa7426"},
+    {file = "dagster_graphql-1.4.10-py3-none-any.whl", hash = "sha256:ed4478d0cf626c52262776b9a6b5f4188d5eba746a2d90caea00f3492ead3781"},
 ]
 
 [package.dependencies]
-dagster = "1.1.21"
+dagster = "1.4.10"
 gql = {version = ">=3.0.0", extras = ["requests"]}
 graphene = ">=3"
 requests = "*"
 starlette = "*"
+urllib3 = "<2.0.0"
 
 [[package]]
 name = "dagster-meltano"
@@ -582,19 +583,42 @@ resolved_reference = "b83da793887704eb3c8eac4a9285958b755f2c64"
 
 [[package]]
 name = "dagster-postgres"
-version = "0.17.21"
+version = "0.20.10"
 description = "A Dagster integration for postgres"
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "dagster-postgres-0.17.21.tar.gz", hash = "sha256:95e152a05faf684d2bf3438f802a5da451d88c0f178309275b31a2385bb5d721"},
-    {file = "dagster_postgres-0.17.21-py3-none-any.whl", hash = "sha256:d95af322daa14860e31e59424aa25b9a42d599498b32274592210173fd2e400d"},
+    {file = "dagster-postgres-0.20.10.tar.gz", hash = "sha256:1c53a0e6abdb9694fdc2401acb39ec3435181f4c13efa9010169f094496cd44f"},
+    {file = "dagster_postgres-0.20.10-py3-none-any.whl", hash = "sha256:beba927e36ff7aca9b98468cd97dd415266520a5d4cbc8f6a6c7c27319fc3c85"},
 ]
 
 [package.dependencies]
-dagster = "1.1.21"
+dagster = "1.4.10"
 psycopg2-binary = "*"
+
+[[package]]
+name = "dagster-webserver"
+version = "1.4.10"
+description = "Web UI for dagster."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "dagster_webserver-1.4.10-py3-none-any.whl", hash = "sha256:be30e464c86bc2dec4e525291c253c917c89b1eba46be54fd988a7b1b0ba2422"},
+    {file = "dagster_webserver-1.4.10.tar.gz", hash = "sha256:0eaf2f954199b1480a92b99f6829f6dd50fc8df8454ca4d881289a430984d994"},
+]
+
+[package.dependencies]
+click = ">=7.0,<9.0"
+dagster = "1.4.10"
+dagster-graphql = "1.4.10"
+starlette = "*"
+uvicorn = {version = "*", extras = ["standard"]}
+
+[package.extras]
+notebook = ["nbconvert"]
+test = ["starlette[full]"]
 
 [[package]]
 name = "dbt-core"
@@ -985,19 +1009,19 @@ protobuf = ["grpcio-tools (>=1.47.2)"]
 
 [[package]]
 name = "grpcio-health-checking"
-version = "1.43.0"
+version = "1.47.2"
 description = "Standard Health Checking Service for gRPC"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "grpcio-health-checking-1.43.0.tar.gz", hash = "sha256:23b3c6c3a6da85f7cd944cbebd965cdceb2a5e4e65f071a2b6cf1eb3510c993e"},
-    {file = "grpcio_health_checking-1.43.0-py3-none-any.whl", hash = "sha256:802195ec77dd609ed9721dcb4d5916b6018dc49351b904d152fb697595debd33"},
+    {file = "grpcio-health-checking-1.47.2.tar.gz", hash = "sha256:8f9411d68a6683064f742237df7b0dba8f3239ab42efb2dcaebc22d49241920c"},
+    {file = "grpcio_health_checking-1.47.2-py3-none-any.whl", hash = "sha256:026a743a7576ea61b9a9ac161827dffde3e928eef033b1844749cf5c7c5967eb"},
 ]
 
 [package.dependencies]
-grpcio = ">=1.43.0"
-protobuf = ">=3.6.0"
+grpcio = ">=1.47.2"
+protobuf = ">=3.12.0"
 
 [[package]]
 name = "h11"
@@ -1608,6 +1632,76 @@ developer = ["mypy (>=0.961)", "pre-commit (>=2.20)"]
 doc = ["nb2plots (>=0.6)", "numpydoc (>=1.4)", "pillow (>=9.1)", "pydata-sphinx-theme (>=0.9)", "sphinx (>=5)", "sphinx-gallery (>=0.10)", "texext (>=0.6.6)"]
 extra = ["lxml (>=4.6)", "pydot (>=1.4.2)", "pygraphviz (>=1.9)", "sympy (>=1.10)"]
 test = ["codecov (>=2.1)", "pytest (>=7.1)", "pytest-cov (>=3.0)"]
+
+[[package]]
+name = "orjson"
+version = "3.9.5"
+description = "Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "orjson-3.9.5-cp310-cp310-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:ad6845912a71adcc65df7c8a7f2155eba2096cf03ad2c061c93857de70d699ad"},
+    {file = "orjson-3.9.5-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e298e0aacfcc14ef4476c3f409e85475031de24e5b23605a465e9bf4b2156273"},
+    {file = "orjson-3.9.5-cp310-cp310-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:83c9939073281ef7dd7c5ca7f54cceccb840b440cec4b8a326bda507ff88a0a6"},
+    {file = "orjson-3.9.5-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:e174cc579904a48ee1ea3acb7045e8a6c5d52c17688dfcb00e0e842ec378cabf"},
+    {file = "orjson-3.9.5-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:f8d51702f42c785b115401e1d64a27a2ea767ae7cf1fb8edaa09c7cf1571c660"},
+    {file = "orjson-3.9.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f13d61c0c7414ddee1ef4d0f303e2222f8cced5a2e26d9774751aecd72324c9e"},
+    {file = "orjson-3.9.5-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:d748cc48caf5a91c883d306ab648df1b29e16b488c9316852844dd0fd000d1c2"},
+    {file = "orjson-3.9.5-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:bd19bc08fa023e4c2cbf8294ad3f2b8922f4de9ba088dbc71e6b268fdf54591c"},
+    {file = "orjson-3.9.5-cp310-none-win32.whl", hash = "sha256:5793a21a21bf34e1767e3d61a778a25feea8476dcc0bdf0ae1bc506dc34561ea"},
+    {file = "orjson-3.9.5-cp310-none-win_amd64.whl", hash = "sha256:2bcec0b1024d0031ab3eab7a8cb260c8a4e4a5e35993878a2da639d69cdf6a65"},
+    {file = "orjson-3.9.5-cp311-cp311-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:8547b95ca0e2abd17e1471973e6d676f1d8acedd5f8fb4f739e0612651602d66"},
+    {file = "orjson-3.9.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:87ce174d6a38d12b3327f76145acbd26f7bc808b2b458f61e94d83cd0ebb4d76"},
+    {file = "orjson-3.9.5-cp311-cp311-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:a960bb1bc9a964d16fcc2d4af5a04ce5e4dfddca84e3060c35720d0a062064fe"},
+    {file = "orjson-3.9.5-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:1a7aa5573a949760d6161d826d34dc36db6011926f836851fe9ccb55b5a7d8e8"},
+    {file = "orjson-3.9.5-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:8b2852afca17d7eea85f8e200d324e38c851c96598ac7b227e4f6c4e59fbd3df"},
+    {file = "orjson-3.9.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:aa185959c082475288da90f996a82e05e0c437216b96f2a8111caeb1d54ef926"},
+    {file = "orjson-3.9.5-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:89c9332695b838438ea4b9a482bce8ffbfddde4df92750522d928fb00b7b8dce"},
+    {file = "orjson-3.9.5-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:2493f1351a8f0611bc26e2d3d407efb873032b4f6b8926fed8cfed39210ca4ba"},
+    {file = "orjson-3.9.5-cp311-none-win32.whl", hash = "sha256:ffc544e0e24e9ae69301b9a79df87a971fa5d1c20a6b18dca885699709d01be0"},
+    {file = "orjson-3.9.5-cp311-none-win_amd64.whl", hash = "sha256:89670fe2732e3c0c54406f77cad1765c4c582f67b915c74fda742286809a0cdc"},
+    {file = "orjson-3.9.5-cp312-cp312-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:15df211469625fa27eced4aa08dc03e35f99c57d45a33855cc35f218ea4071b8"},
+    {file = "orjson-3.9.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d9f17c59fe6c02bc5f89ad29edb0253d3059fe8ba64806d789af89a45c35269a"},
+    {file = "orjson-3.9.5-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ca6b96659c7690773d8cebb6115c631f4a259a611788463e9c41e74fa53bf33f"},
+    {file = "orjson-3.9.5-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:a26fafe966e9195b149950334bdbe9026eca17fe8ffe2d8fa87fdc30ca925d30"},
+    {file = "orjson-3.9.5-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:9006b1eb645ecf460da067e2dd17768ccbb8f39b01815a571bfcfab7e8da5e52"},
+    {file = "orjson-3.9.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ebfdbf695734b1785e792a1315e41835ddf2a3e907ca0e1c87a53f23006ce01d"},
+    {file = "orjson-3.9.5-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:4a3943234342ab37d9ed78fb0a8f81cd4b9532f67bf2ac0d3aa45fa3f0a339f3"},
+    {file = "orjson-3.9.5-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:e6762755470b5c82f07b96b934af32e4d77395a11768b964aaa5eb092817bc31"},
+    {file = "orjson-3.9.5-cp312-none-win_amd64.whl", hash = "sha256:c74df28749c076fd6e2157190df23d43d42b2c83e09d79b51694ee7315374ad5"},
+    {file = "orjson-3.9.5-cp37-cp37m-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:88e18a74d916b74f00d0978d84e365c6bf0e7ab846792efa15756b5fb2f7d49d"},
+    {file = "orjson-3.9.5-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d28514b5b6dfaf69097be70d0cf4f1407ec29d0f93e0b4131bf9cc8fd3f3e374"},
+    {file = "orjson-3.9.5-cp37-cp37m-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:25b81aca8c7be61e2566246b6a0ca49f8aece70dd3f38c7f5c837f398c4cb142"},
+    {file = "orjson-3.9.5-cp37-cp37m-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:385c1c713b1e47fd92e96cf55fd88650ac6dfa0b997e8aa7ecffd8b5865078b1"},
+    {file = "orjson-3.9.5-cp37-cp37m-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:f9850c03a8e42fba1a508466e6a0f99472fd2b4a5f30235ea49b2a1b32c04c11"},
+    {file = "orjson-3.9.5-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4449f84bbb13bcef493d8aa669feadfced0f7c5eea2d0d88b5cc21f812183af8"},
+    {file = "orjson-3.9.5-cp37-cp37m-musllinux_1_1_aarch64.whl", hash = "sha256:86127bf194f3b873135e44ce5dc9212cb152b7e06798d5667a898a00f0519be4"},
+    {file = "orjson-3.9.5-cp37-cp37m-musllinux_1_1_x86_64.whl", hash = "sha256:0abcd039f05ae9ab5b0ff11624d0b9e54376253b7d3217a358d09c3edf1d36f7"},
+    {file = "orjson-3.9.5-cp37-none-win32.whl", hash = "sha256:10cc8ad5ff7188efcb4bec196009d61ce525a4e09488e6d5db41218c7fe4f001"},
+    {file = "orjson-3.9.5-cp37-none-win_amd64.whl", hash = "sha256:ff27e98532cb87379d1a585837d59b187907228268e7b0a87abe122b2be6968e"},
+    {file = "orjson-3.9.5-cp38-cp38-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:5bfa79916ef5fef75ad1f377e54a167f0de334c1fa4ebb8d0224075f3ec3d8c0"},
+    {file = "orjson-3.9.5-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e87dfa6ac0dae764371ab19b35eaaa46dfcb6ef2545dfca03064f21f5d08239f"},
+    {file = "orjson-3.9.5-cp38-cp38-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:50ced24a7b23058b469ecdb96e36607fc611cbaee38b58e62a55c80d1b3ad4e1"},
+    {file = "orjson-3.9.5-cp38-cp38-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:b1b74ea2a3064e1375da87788897935832e806cc784de3e789fd3c4ab8eb3fa5"},
+    {file = "orjson-3.9.5-cp38-cp38-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:a7cb961efe013606913d05609f014ad43edfaced82a576e8b520a5574ce3b2b9"},
+    {file = "orjson-3.9.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1225d2d5ee76a786bda02f8c5e15017462f8432bb960de13d7c2619dba6f0275"},
+    {file = "orjson-3.9.5-cp38-cp38-musllinux_1_1_aarch64.whl", hash = "sha256:f39f4b99199df05c7ecdd006086259ed25886cdbd7b14c8cdb10c7675cfcca7d"},
+    {file = "orjson-3.9.5-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:a461dc9fb60cac44f2d3218c36a0c1c01132314839a0e229d7fb1bba69b810d8"},
+    {file = "orjson-3.9.5-cp38-none-win32.whl", hash = "sha256:dedf1a6173748202df223aea29de814b5836732a176b33501375c66f6ab7d822"},
+    {file = "orjson-3.9.5-cp38-none-win_amd64.whl", hash = "sha256:fa504082f53efcbacb9087cc8676c163237beb6e999d43e72acb4bb6f0db11e6"},
+    {file = "orjson-3.9.5-cp39-cp39-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:6900f0248edc1bec2a2a3095a78a7e3ef4e63f60f8ddc583687eed162eedfd69"},
+    {file = "orjson-3.9.5-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:17404333c40047888ac40bd8c4d49752a787e0a946e728a4e5723f111b6e55a5"},
+    {file = "orjson-3.9.5-cp39-cp39-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:0eefb7cfdd9c2bc65f19f974a5d1dfecbac711dae91ed635820c6b12da7a3c11"},
+    {file = "orjson-3.9.5-cp39-cp39-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:68c78b2a3718892dc018adbc62e8bab6ef3c0d811816d21e6973dee0ca30c152"},
+    {file = "orjson-3.9.5-cp39-cp39-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:591ad7d9e4a9f9b104486ad5d88658c79ba29b66c5557ef9edf8ca877a3f8d11"},
+    {file = "orjson-3.9.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6cc2cbf302fbb2d0b2c3c142a663d028873232a434d89ce1b2604ebe5cc93ce8"},
+    {file = "orjson-3.9.5-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "sha256:b26b5aa5e9ee1bad2795b925b3adb1b1b34122cb977f30d89e0a1b3f24d18450"},
+    {file = "orjson-3.9.5-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:ef84724f7d29dcfe3aafb1fc5fc7788dca63e8ae626bb9298022866146091a3e"},
+    {file = "orjson-3.9.5-cp39-none-win32.whl", hash = "sha256:664cff27f85939059472afd39acff152fbac9a091b7137092cb651cf5f7747b5"},
+    {file = "orjson-3.9.5-cp39-none-win_amd64.whl", hash = "sha256:91dda66755795ac6100e303e206b636568d42ac83c156547634256a2e68de694"},
+    {file = "orjson-3.9.5.tar.gz", hash = "sha256:6daf5ee0b3cf530b9978cdbf71024f1c16ed4a67d05f6ec435c6e7fe7a52724c"},
+]
 
 [[package]]
 name = "packaging"
@@ -2295,18 +2389,6 @@ testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-202
 testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
-name = "shellingham"
-version = "1.5.3"
-description = "Tool to Detect Surrounding Shell"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "shellingham-1.5.3-py2.py3-none-any.whl", hash = "sha256:419c6a164770c9c7cfcaeddfacb3d31ac7a8db0b0f3e9c1287679359734107e9"},
-    {file = "shellingham-1.5.3.tar.gz", hash = "sha256:cb4a6fec583535bc6da17b647dd2330cf7ef30239e05d547d99ae3705fd0f7f8"},
-]
-
-[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -2539,27 +2621,25 @@ telegram = ["requests"]
 
 [[package]]
 name = "typer"
-version = "0.6.1"
+version = "0.9.0"
 description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "typer-0.6.1-py3-none-any.whl", hash = "sha256:54b19e5df18654070a82f8c2aa1da456a4ac16a2a83e6dcd9f170e291c56338e"},
-    {file = "typer-0.6.1.tar.gz", hash = "sha256:2d5720a5e63f73eaf31edaa15f6ab87f35f0690f8ca233017d7d23d743a91d73"},
+    {file = "typer-0.9.0-py3-none-any.whl", hash = "sha256:5d96d986a21493606a358cae4461bd8cdf83cbf33a5aa950ae629ca3b51467ee"},
+    {file = "typer-0.9.0.tar.gz", hash = "sha256:50922fd79aea2f4751a8e0408ff10d2662bd0c8bbfa84755a699f3bada2978b2"},
 ]
 
 [package.dependencies]
 click = ">=7.1.1,<9.0.0"
-colorama = {version = ">=0.4.3,<0.5.0", optional = true, markers = "extra == \"all\""}
-rich = {version = ">=10.11.0,<13.0.0", optional = true, markers = "extra == \"all\""}
-shellingham = {version = ">=1.3.0,<2.0.0", optional = true, markers = "extra == \"all\""}
+typing-extensions = ">=3.7.4.3"
 
 [package.extras]
-all = ["colorama (>=0.4.3,<0.5.0)", "rich (>=10.11.0,<13.0.0)", "shellingham (>=1.3.0,<2.0.0)"]
+all = ["colorama (>=0.4.3,<0.5.0)", "rich (>=10.11.0,<14.0.0)", "shellingham (>=1.3.0,<2.0.0)"]
 dev = ["autoflake (>=1.3.1,<2.0.0)", "flake8 (>=3.8.3,<4.0.0)", "pre-commit (>=2.17.0,<3.0.0)"]
-doc = ["mdx-include (>=1.4.1,<2.0.0)", "mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=8.1.4,<9.0.0)"]
-test = ["black (>=22.3.0,<23.0.0)", "coverage (>=5.2,<6.0)", "isort (>=5.0.6,<6.0.0)", "mypy (==0.910)", "pytest (>=4.4.0,<5.4.0)", "pytest-cov (>=2.10.0,<3.0.0)", "pytest-sugar (>=0.9.4,<0.10.0)", "pytest-xdist (>=1.32.0,<2.0.0)", "rich (>=10.11.0,<13.0.0)", "shellingham (>=1.3.0,<2.0.0)"]
+doc = ["cairosvg (>=2.5.2,<3.0.0)", "mdx-include (>=1.4.1,<2.0.0)", "mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=8.1.4,<9.0.0)", "pillow (>=9.3.0,<10.0.0)"]
+test = ["black (>=22.3.0,<23.0.0)", "coverage (>=6.2,<7.0)", "isort (>=5.0.6,<6.0.0)", "mypy (==0.910)", "pytest (>=4.4.0,<8.0.0)", "pytest-cov (>=2.10.0,<5.0.0)", "pytest-sugar (>=0.9.4,<0.10.0)", "pytest-xdist (>=1.32.0,<4.0.0)", "rich (>=10.11.0,<14.0.0)", "shellingham (>=1.3.0,<2.0.0)"]
 
 [[package]]
 name = "typing-extensions"
@@ -2986,4 +3066,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "<3.11,>=3.8"
-content-hash = "225bd1f35adcffde61629444aa87323ede04d6047983e7dd1e0fd8144222158e"
+content-hash = "e5359fc14d7e97fe4d75f7f6453584e9bfce97f82871f287ac01e73b3b82bb37"
