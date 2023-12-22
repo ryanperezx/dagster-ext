@@ -22,6 +22,7 @@ dagit = ">=1.3,<2"
 dagster = ">=1.3,<2"
 dagster-dbt = "^0.20.10"
 dagster-slack = "^0.20.10"
+dagster-ge = "^0.20.10"
 cookiecutter = "^2.1.1"
 rich = "^12.5.1"
 dagster-meltano = { git = "https://github.com/hiddestokvis/dagster-meltano.git" }
